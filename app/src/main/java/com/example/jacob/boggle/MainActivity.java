@@ -14,6 +14,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public static Boolean tile1ButtonPushed, tile2ButtonPushed, tile3ButtonPushed, tile4ButtonPushed, tile5ButtonPushed, tile6ButtonPushed,
+            tile7ButtonPushed, tile8ButtonPushed, tile9ButtonPushed, tile10ButtonPushed, tile11ButtonPushed, tile12ButtonPushed,
+            tile13ButtonPushed, tile14ButtonPushed, tile15ButtonPushed, tile16ButtonPushed;
+    public static String tile1ButtonLetter;
     protected Button tile1Button;
     protected Button tile2Button;
     protected Button tile3Button;
@@ -31,19 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected Button tile15Button;
     protected Button tile16Button;
     protected Button submitScoreButton;
-    Boolean tile1ButtonPushed, tile2ButtonPushed, tile3ButtonPushed, tile4ButtonPushed, tile5ButtonPushed, tile6ButtonPushed,
-            tile7ButtonPushed, tile8ButtonPushed, tile9ButtonPushed, tile10ButtonPushed, tile11ButtonPushed, tile12ButtonPushed,
-            tile13ButtonPushed, tile14ButtonPushed, tile15ButtonPushed, tile16ButtonPushed;
     protected TextView letterDisplayTextView;
     protected TextView yourScoreNumberTextView;
+    boolean letterSumbitted1;
     int yourScoreNumber = 0;
-
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    //private GoogleApiClient client;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,9 +117,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         yourScoreNumberTextView =  (TextView) findViewById(R.id.yourScoreNumberTextView);
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-      //  client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
 
@@ -136,13 +128,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             tile1Button.setBackgroundColor(0x86090404);
             tile1ButtonPushed = true; //button is pushed
             //Adds the letter of Button to TextView
-            String tile1ButtonLetter = tile1Button.getText().toString();
+            tile1ButtonLetter = tile1Button.getText().toString();
             letterDisplayTextView.setText(letterDisplayTextView.getText() + tile1ButtonLetter);
+            letterSumbitted1 = true;
+
 
         } else if (v.getId() == R.id.tile1Button && tile1ButtonPushed) {
             //if Button pressed again, changes background back to original background
             tile1Button.setBackgroundResource(R.mipmap.wood1);
             tile1ButtonPushed = false; //the button is no longer pushed
+            letterSumbitted1 = false;
+
+            letterDisplayTextView.setText
+                    (letterDisplayTextView.getText().toString().replace(tile1ButtonLetter, ""));
+
         }
 
         if (v.getId() == R.id.tile2Button && !tile2ButtonPushed) {
@@ -352,7 +351,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             tile16ButtonPushed = false;
         }
 
-
+        //ButtonLetterListener.setLetter()
     }
+
 
 }

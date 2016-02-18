@@ -352,17 +352,8 @@
             android:layout_weight=".5"
             android:text="Submit Score" />
 
-        <Button
-            android:id="@+id/quitButton"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="20dp"
-            android:layout_weight=".5"
-            android:text="Quit" />
-
         <ScrollView
-            android:id="@+id/WordBankScrollView"
+            android:id="@+id/wordBankScrollView"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="4"
@@ -372,7 +363,7 @@
         </ScrollView>
 
         <Button
-            android:id="@+id/RotateBackwardButton"
+            android:id="@+id/rotateBackwardButton"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -381,7 +372,7 @@
             android:text="Rotate Left" />
 
         <Button
-            android:id="@+id/RotateForwardButton"
+            android:id="@+id/rotateForwardButton"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"

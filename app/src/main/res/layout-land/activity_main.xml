@@ -50,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="25"
+            android:text="Timer"
             android:textAlignment="center"
             android:textColor="#100c00"
             android:textSize="40sp"
@@ -57,7 +58,7 @@
             android:typeface="sans" />
 
         <TextView
-            android:id="@+id/OpponentScoreTitleTextView"
+            android:id="@+id/opponentScoreTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -90,7 +91,7 @@
         android:textAlignment="center">
 
         <TextView
-            android:id="@+id/TitleTextView"
+            android:id="@+id/titleTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -340,21 +341,12 @@
         android:paddingBottom="20dp">
 
         <Button
-            android:id="@+id/SumbitScoreButton"
+            android:id="@+id/submitScoreButton"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_weight=".5"
-            android:text="Sumbit Score" />
-
-        <Button
-            android:id="@+id/sumbitWordButton"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:layout_weight=".5"
-            android:text="Submit Word" />
+            android:text="Submit Score" />
 
         <TextView
             android:id="@+id/letterDisplayTextView"

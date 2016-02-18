@@ -30,9 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected Button submitScoreButton;
     protected TextView letterDisplayTextView;
     protected TextView yourScoreNumberTextView;
-    boolean letterSumbitted1, letterSumbitted2, letterSumbitted3, letterSumbitted4,
-            letterSumbitted5, letterSumbitted6, letterSumbitted7, letterSumbitted8, letterSumbitted9,
-            letterSumbitted10, letterSumbitted11, letterSumbitted12, letterSumbitted14, letterSumbitted15;
+
     int yourScoreNumber = 0;
 
     @Override
@@ -40,11 +38,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         letterDisplayTextView = (TextView) findViewById(R.id.letterDisplayTextView);
         letterDisplayTextView.setText("");
 
-        tile1Button = (Button) findViewById(R.id.tile1Button);
-        tile1Button.setOnClickListener(this);
+
         tile1ButtonPushed = false;
         tile2ButtonPushed = false;
         tile3ButtonPushed = false;
@@ -61,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tile14ButtonPushed = false;
         tile15ButtonPushed = false;
         tile16ButtonPushed = false;
+
+        tile1Button = (Button) findViewById(R.id.tile1Button);
+        tile1Button.setOnClickListener(this);
 
         tile2Button = (Button) findViewById(R.id.tile2Button);
         tile2Button.setOnClickListener(this);
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         submitScoreButton = (Button) findViewById(R.id.submitScoreButton);
         submitScoreButton.setOnClickListener(this);
 
-        yourScoreNumberTextView =  (TextView) findViewById(R.id.yourScoreNumberTextView);
+        yourScoreNumberTextView = (TextView) findViewById(R.id.yourScoreNumberTextView);
 
     }
 
@@ -125,17 +126,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Adds the letter of Button to TextView
             tile1ButtonLetter = tile1Button.getText().toString();
             letterDisplayTextView.setText(letterDisplayTextView.getText() + tile1ButtonLetter);
-            //letterSumbitted1 = true;
+
 
 
         } else if (v.getId() == R.id.tile1Button && tile1ButtonPushed) {
             //if Button pressed again, changes background back to original background
             tile1Button.setBackgroundResource(R.mipmap.wood1);
             tile1ButtonPushed = false; //the button is no longer pushed
-            //letterSumbitted1 = false;
 
-            // letterDisplayTextView.setText
-            //   (letterDisplayTextView.getText().toString().replace(tile1ButtonLetter, ""));
             removeLetter(tile1ButtonLetter);
         }
 
@@ -382,14 +380,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void removeLetter(String letter) {
-        //char c = letterDisplayTextView.getText().toString().charAt(0);
+        char c = letter.charAt(0);
         if (!letter.equals("Qu")) {
-            int Index = letterDisplayTextView.getText().toString().lastIndexOf(letter);
+            int Index = letterDisplayTextView.getText().toString().lastIndexOf(c);
             char character = letterDisplayTextView.getText().toString().charAt(Index);
-            String s = character + "";
 
+            //String s = new StringBuilder(letterDisplayTextView);
             if (Index != -1) {
-                letterDisplayTextView.setText(letterDisplayTextView.getText().toString().replace(s, "")); // not forgot to put check if(endIndex != -1)
+                StringBuilder string = new StringBuilder(letterDisplayTextView.getText().toString());
+                string.deleteCharAt(Index);
+                System.out.println(string);
+
+                letterDisplayTextView.setText(string);// not forgot to put check if(endIndex != -1)
             }
         } else {
             letter = "Q";
@@ -398,7 +400,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String s = character + "u";
             System.out.println(s);
             if (Index != -1) {
-                letterDisplayTextView.setText(letterDisplayTextView.getText().toString().replace(s, "")); // not forgot to put check if(endIndex != -1)
+                StringBuilder string = new StringBuilder(letterDisplayTextView.getText().toString());
+                string.deleteCharAt(Index + 1);
+                string.deleteCharAt(Index);
+
+                letterDisplayTextView.setText(string);
+            }
+            // letterDisplayTextView.setText(letterDisplayTextView.getText().toString().replace(s, "")); // not forgot to put check if(endIndex != -1)
             }
 
 
@@ -408,4 +416,3 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //     (letterDisplayTextView.getText().toString().replace(lastIndexof(tile1ButtonLetter), ""));
 
     }
-}

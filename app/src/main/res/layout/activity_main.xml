@@ -352,11 +352,16 @@
             android:layout_weight=".5"
             android:text="Submit Score" />
 
+        <Space
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight=".5" />
+
         <ScrollView
             android:id="@+id/wordBankScrollView"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:fillViewport="true"
             android:foreground="#f3cbcb">
 
